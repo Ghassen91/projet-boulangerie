@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
 use App\Services\MailerService;
@@ -29,14 +28,12 @@ class ContactController extends AbstractController
             //Je récupère les données saisies
             $contact = $form->getData();
 
-            
-            $toEmail = 'ghassenbelhadj@gmail.com'; // Adresse e-mail de l'administrateur
             $from = $contact->getEmail();
             $subject = 'Nouveau message de '.' '.$contact->getName(). ' '.$contact->getFirstname();
             $content = $contact->getMessage();
             // J'utilise le mailerService pour envoyer ce formulaire
             // à l'adresse mail de l'administrateur
-            $mailer->sendEmail($toEmail, $subject, $content, $from);
+            $mailer->sendEmail($subject, $content, $from);
 
             // Si le formulaire est bien envoyer et le mail est correctement envoyé
             // j'affiche un meesage de succès à l'utilisateur

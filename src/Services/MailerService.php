@@ -12,11 +12,10 @@ class MailerService
 
     }
 
-    public function sendEmail(string $toEmail, string $subject, string $content, string $from): void
+    public function sendEmail(string $subject, string $content, string $from): void
     {
         $email = (new Email())
             ->from($from)
-            ->to($toEmail)
             ->subject($subject)
             ->html($content);
 
