@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Boulangerie de la gare : Votre boulangerie, pâtisserie artisanale et traditionnelle Évry, Corbeil-Essonnes">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Castoro+Titling&family=Abril+Fatface&family=Fredericka+the+Great&family=Open+Sans&family=Roboto&family=Viaoda+Libre&family=Wix+Madefor+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/lightbox.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Boulangerie de la gare - Évry</title>
+</head>
+<body>
+
+<header class="header-home">
+    <div class="header-div">
+        <div class="div-logo">
+            <div class="logo">
+                <a href=" {{path('app_home_home')}} ">BOULANGERIE DE LA GARE</a>
+            </div>
+
+        </div>
+            
+        
+        <nav class="menu">
+            <div>
+                <a href="{{path('app_home_home')}}">Accueil</a>
+                <a href="{{path('app_category_list')}}">Nos produits</a>
+                <a href="{{path('app_contact_contact')}}">Contact</a>
+            </div>
+
+            <form class="search-form" method="GET" action="{{path('app_home_search')}}">
+                <input type="search" name="name" placeholder="Rechercher...">
+                <button class=button type="submit">Rechercher</button>
+            </form>
+        
+        </nav>
+
+        <ion-icon class="burger-menu" name="menu-outline"></ion-icon>
+    </div>
+    <div class="header-title">
+        <h1>Découvrez l'irrésistible saveur de la Boulangerie de la gare</h1>
+
+        <hr class="hr-header">
+
+        <h2>Bienvenue dans l'univers enchanteur de la Boulangerie de la gare, où le parfum du pain frais et la douceur des pâtisseries artisanales vous transportent vers une expérience gustative inoubliable.</h2>
+
+        <a class="header-btn" href="{{path('app_category_list')}}">Nos produits</a>
+    </div>
+</header>
+
+
+
+<main>
+
+    <section class="presentation">
+
+        <div class="presentation-text">
+            <p>
+                Bienvenue à la Boulangerie de la gare : votre destination gourmande pour les plaisirs de la boulangerie artisanale ! Nous sommes ravis de vous présenter notre boulangerie unique, où le savoir-faire traditionnel rencontre la créativité moderne pour vous offrir une expérience gustative inoubliable.
+                À la Boulangerie de la gare, nous mettons un point d'honneur à sélectionner soigneusement les meilleurs ingrédients pour confectionner nos délices. Notre farine, issue de moulins locaux, est de la plus haute qualité, et nos autres ingrédients sont choisis avec soin pour leur fraîcheur et leur provenance responsable. Nous croyons fermement que la qualité des matières premières se reflète dans la saveur et la texture de nos produits finis.
+            </p>
+
+            <p>
+                Notre gamme de pains artisanaux est le cœur de notre métier. Que vous recherchiez un pain de campagne rustique, une baguette croustillante ou un pain aux céréales riches en saveurs, nous avons de quoi combler toutes vos envies. Nos boulangers talentueux pétrissent et façonnent chaque pain avec amour, en respectant les méthodes traditionnelles de fermentation lente pour garantir une mie légère et aérée, et une croûte dorée et croustillante.
+  
+                Mais la Boulangerie de la gare ne s'arrête pas là ! Nous savons que la vie est parsemée de petits plaisirs sucrés, et c'est pourquoi nous vous proposons également une sélection alléchante de pâtisseries artisanales. Nos éclairs décadents, nos tartelettes aux fruits frais et nos pains au chocolat feuilletés vous invitent à savourer des moments de pur bonheur. Que ce soit pour accompagner votre café matinal ou pour célébrer une occasion spéciale, nos douceurs sucrées raviront vos papilles.
+                Nous espérons vous accueillir bientôt à la Boulangerie de la gare, où chaque bouchée est une célébration du goût et de la tradition artisanale.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-carousel-2">
+
+        <h2>Venez goûter à nos gourmandises !</h2>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10549.09576744428!2d2.4319717999999915!3d48.623739700000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5e1901b2afc13%3A0xf127822783cbe381!2sBoulangerie%20de%20la%20gare!5e0!3m2!1sfr!2sfr!4v1687612516345!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+            <div class="image-bakery">
+                {% for imageBakery in imageBakerys %}
+                    <img class="bakery-img" src="{{vich_uploader_asset(imageBakery, 'imageFile')}}" alt="photo_de_la_boulangerie">
+                {% endfor %}
+            </div>
+        </div>
+
+        {% for imageBakery in imageBakerys %}
+            
+            <div class="lightbox">
+                <div class="lightbox_container"></div>
+            </div>
+
+        {% endfor %}
+    
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div>
+        <div class="logo-footer">
+            <p>Boulangerie de la gare</p>
+        </div>
+        <p>38 rue Nettie Stevens <br> 91000 EVRY-COURCOURONNES</p>
+        <p>Horaires d'ouverture : <br> Du lundi au dimanche <br> De 6h00 à 22h00</p>
+        <p>Boulangerie de la gare © 2023</p>
+    </div>
+
+    <hr class="hr-footer">
+
+    <div class="footer-menu">
+        <a href="#">Mentions légales</a>
+        <span>|</span>
+        <a href="#">Politique de confidentialité</a>
+        <span>|</span>
+        <a href="{{path('app_contact_contact')}}">Contact</a>
+    </div>        
+</footer>
+    
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="/js/script.js"></script>
+<script src="/js/lightbox.js" defer></script>
+
+</body>
+</html>

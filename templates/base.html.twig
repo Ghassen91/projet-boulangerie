@@ -2,18 +2,74 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="description" content="Boulangerie de la gare : Votre boulangerie, pâtisserie artisanale et traditionnelle d'Évry">
+        <title>{% block title %}Bienvenue{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Castoro+Titling&family=Abril+Fatface&family=Fredericka+the+Great&family=Open+Sans&family=Roboto&family=Viaoda+Libre&family=Wix+Madefor+Display&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/style.css">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
     </head>
     <body>
+
+        <header class="header">
+            <div class="div-logo">
+                <div class="logo">
+                    <a href=" {{path('app_home_home')}} ">BOULANGERIE DE LA GARE</a>
+                </div>
+            </div>
+              
+            
+            <nav class="menu">
+                <div>
+                    <a href="{{path('app_home_home')}}">Accueil</a>
+                    <a href="{{path('app_category_list')}}">Nos produits</a>
+                    <a href="{{path('app_contact_contact')}}">Contact</a>
+                </div>
+
+                <form class="search-form" method="GET" action="{{path('app_home_search')}}">
+                    <input type="search" name="name" placeholder="Rechercher...">
+                    <button class='button' type="submit">Rechercher</button>
+                </form>
+            </nav>
+
+            <ion-icon class="burger-menu" name="menu-outline"></ion-icon>
+
+        </header>
+
         {% block body %}{% endblock %}
+
+        <footer class="footer">
+            <div>
+                <div class="logo-footer">
+                    <p>Boulangerie de la Gare</p>
+                </div>
+                <p>38 rue Nettie Stevens <br> 91000 EVRY-COURCOURONNES</p>
+                <p>Horaires d'ouverture : <br> Du lundi au dimanche <br> De 6h00 à 22h00</p>
+                <p>Boulangerie de la gare © 2023</p>
+            </div>
+
+            <hr class="hr-footer">
+
+
+            <div class="footer-menu">
+                <a href="#">Mentions légales</a>
+                <span>|</span>
+                <a href="#">Politique de confidentialité</a>
+                <span>|</span>
+                <a href="{{path('app_contact_contact')}}">Contact</a>
+            </div>        
+        </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <script src="/js/script.js"></script>
+
     </body>
 </html>

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block body %}
+
+<main>
+
+<section class="category-section">
+    {% for category in categorys %}
+    <div class="category-title">
+        <a href="{{path('app_product_list', {'id': category.id})}}"><h1>{{category.name}}</h1></a>
+        <p> {{category.description}} </p>
+    
+    </div>
+    
+    <div class="category">
+        <img src="{{vich_uploader_asset(category, 'imageFile')}}" alt="{{category.name}}">
+    </div>
+
+    {% endfor %}
+</section>
+
+</main>
+
+{% endblock %}

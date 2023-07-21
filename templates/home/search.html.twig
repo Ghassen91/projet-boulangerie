@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Rechercher un produit{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        
+        {{form_start(form, {'attr': {'class': 'form'}})}}
+
+        {{form_row(form.name)}}
+        {{form_row(form.limit)}}
+        {{form_row(form.page)}}
+        {{form_row(form.orderBy)}}
+        {{form_row(form.direction)}}
+        {{form_row(form.submit, {'attr': {'class': 'button'}})}}
+
+        {{form_end(form)}}
+        
+        <div class="list-product">
+            {% if products == false %}
+                <h2>Aucun produit disponible</h2>
+            {% else %}
+            
+                {% for product in products %}
+                <div>
+                    {% if product.images|length > 0 %}  
+                    <div class="product">
+                        {% if product.images|length > 0 %}                                       
+                            <img class="product-image" src="{{ vich_uploader_asset(product.images.first) }}" alt="{{product.name}}" width="">
+                        {% endif %}          
+                        
+                    </div>
+                    {% endif %}
+
+                    <div class="product-name-div">
+                        <div>
+                            <a href="{{path('app_product_show', {id: product.id})}}"><h2 class="name-product">{{product.name}}</h2></a>
+                            <p class="price">{{product.price|number_format(2)}} €</p> 
+                        </div>
+                        <p> {{product.description}} </p>
+                    </div> 
+                </div>
+                {% endfor %}
+            
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

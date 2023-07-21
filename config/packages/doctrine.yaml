@@ -1,6 +1,7 @@
 doctrine:
     dbal:
         url: '%env(resolve:DATABASE_URL)%'
+            
 
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)
@@ -8,7 +9,7 @@ doctrine:
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true
-        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware  # Ce bloc a été commenté par moi
         auto_mapping: true
         mappings:
             App:

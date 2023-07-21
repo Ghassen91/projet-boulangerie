@@ -13,10 +13,10 @@ framework:
                     max_retries: 3
                     multiplier: 2
             failed: 'doctrine://default?queue_name=failed'
-            # sync: 'sync://'
+            sync: 'sync://' #cette lignee permet d'activer le transport de manière synchrone pour envoyer les emails
 
         routing:
-            Symfony\Component\Mailer\Messenger\SendEmailMessage: async
+            Symfony\Component\Mailer\Messenger\SendEmailMessage: sync # cette ligne a été modifier de async à sync
             Symfony\Component\Notifier\Message\ChatMessage: async
             Symfony\Component\Notifier\Message\SmsMessage: async
 

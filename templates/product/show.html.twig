@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{product.name}} {% endblock %}
+
+{% block body %}
+<main>
+    <div class="contain-product">
+        <div class="left-div">
+            {% if product.images|length > 0 %}            
+                <img src="{{ vich_uploader_asset(product.images.first) }}" alt="{{product.name}}">
+            {% endif %} 
+        </div>
+
+        <div class="right-div">
+            <h1> {{product.name}} </h1>
+            <p> {{product.description}} </p>
+            <p> {{product.price|number_format(2)}} € </p>
+        </div>
+    </div>
+</main>
+{% endblock %}

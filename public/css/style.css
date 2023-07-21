@@ -1,0 +1,852 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.button {
+  box-shadow:inset 0px 1px 0px 0px #a6827e;
+  background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+  background-color:#7d5d3b;
+  border-radius:10px;
+  border:1px solid #54381e;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:13px;
+  padding:6px 24px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #4d3534;  
+}
+
+.button:hover {
+background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+background-color:#634b30;
+}
+
+.button:active {
+position:relative;
+top:1px;
+}
+
+
+/************************* HEADER ********************/
+
+h1{
+  /* font-family: 'Castoro Titling', cursive; */
+  font-family: 'Abril Fatface', cursive;
+}
+
+.header {
+    background-image: url("/photos/background-footer3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.header-home{
+  height: 60rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -webkit-box-shadow: 0px 24px 19px -13px rgba(0,0,0,0.43); 
+  box-shadow: 0px 10px 19px -13px rgba(0,0,0,0.43);
+  background-image: url("/photos/boulangerie3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.header-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #0006;
+  position: absolute;
+  top: 0;
+}
+
+.logo > a {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 35px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.logo a:hover{
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  /* margin: 0 1rem; */
+}
+
+.div-logo{
+  display: flex;
+  align-items: center;
+}
+
+.header-title > h1{
+  color: white;
+  font-size: 70px;
+  text-align: center;
+}
+
+.header-title > h2 {
+  color: white;
+  padding: 5rem;
+  text-align: center;
+}
+
+.header-title {
+  width: 100%;
+  height: 100%;
+  padding: 10rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0000005c;
+}
+
+.hr-header {
+  color: white;
+  width: 40%;
+  border: 1px solid white;
+  margin: 3rem auto;
+}
+
+.header-btn{
+  padding: 1.5rem 3rem;
+  border: 2px solid white;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  background-color: #0000003b;
+  cursor: pointer;
+}
+
+.header-btn:hover {
+  color: white;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form>input{
+  color: white;
+  font-size: 20px;
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: 2px solid white;
+  background-color: rgba(0, 0, 0, 0.342);
+}
+
+.search-form > input::placeholder {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.menu{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-left: 2rem;
+}
+
+.menu > div {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+
+.menu a {
+  font-family: 'Abril Fatface', cursive;
+  text-decoration: none;
+  color: white;
+  margin: 0 0.5rem;
+  font-size: 22px;
+}
+
+.menu > a:hover {
+  color: white;
+
+}
+
+.burger-menu {
+  display: none;
+}
+
+@media (max-width: 970px) {
+  .menu {
+    position: absolute;
+    display: flex;
+    width: 15rem;
+    flex-direction: column-reverse;
+    background-color: #7d5d3b;
+    right: -240px;
+    top: 139px;
+    gap: 4rem;
+    padding: 3rem 1rem;
+    margin: 0;
+    transition: all ease 0.7s;
+  }
+
+  .burger-menu {
+    display: block;
+    font-size: 65px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .menu > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .header-title{
+    padding: 11rem 5rem;
+  }
+
+  .header-title > h1 {
+    margin: 0;
+    font-size: 60px;
+  }
+  
+  .header-title > h2 {
+    padding: 0;
+    font-size: 30px;
+  }
+
+  .header-div {
+    height: 139px;
+  }
+
+  .header {
+    height: 139px;
+  }
+
+  .search-form > input {
+    font-size: 11px;
+  }
+
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo > a {
+    font-size: 30px;
+  }
+
+}
+
+
+/******************************* MAIN *********************************/
+
+.list-product {
+  display: flex;
+  flex-flow: wrap;
+  margin-bottom: 5rem;
+}
+
+.list-product > h2 {
+  padding: 5rem;
+}
+
+.h1 {
+  margin: 0 1.5rem;
+  padding: 2rem;
+}
+
+.container-fluid{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.title-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 20rem;
+  margin-top: 5rem;
+}
+
+.title-product > p{
+  font-size: 20px;
+}
+
+.product{
+  border: 0.5px solid #a6a6a6;
+  border-radius: 10px;
+  width: 20rem;
+  height: 26rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.list-product > div {
+  margin: 1.5rem;
+}
+
+.name-product{
+  color: black;
+}
+
+.product-name-div {
+  width: 20rem;
+  margin-top: 1rem;
+}
+
+.product-name-div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-image {
+  height: 100%;
+  width: 35rem;
+  transition: all 0.3s;
+  object-fit: cover;
+}
+
+.default-image {
+  filter: grayscale(80%);
+  opacity: 0.4;
+}
+
+.product > a {
+  text-decoration: none;
+}
+
+.price{
+  color: black;
+  font-size: 25px;
+}
+
+.contain-product {
+  display: flex;
+}
+
+.left-div{
+  width: 50%;
+}
+
+.left-div > img {
+  width: 100%;
+  height: auto;
+}
+
+.right-div{
+  padding-inline: 5rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.right-div > p {
+  font-size: 20px;
+}
+
+.presentation{
+  background-image: url("/photos/boulanger4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.presentation-text {
+  width: 100%;
+  height: 100%;
+  padding: 5rem;
+  background-color: rgba(0, 0, 0, 0.29);
+}
+
+.presentation-text > p {
+  font-size: 26px;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+
+.presentation > img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: -1;
+}
+
+.section-carousel-2 {
+  padding: 5rem;
+  background-color: #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-carousel-2 > h2 {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 40px;
+}
+
+.map {
+  display: flex;
+}
+
+iframe {
+  width: 40rem;
+}
+
+.image-bakery {
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.image-bakery > img {
+  width: 13rem;
+  height: 13rem;
+  cursor: pointer;
+}
+
+.contact-text {
+  padding: 0 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-text > h3 {
+  font-size: 30px;
+}
+
+.contact-text > a {
+  font-size: 30px;
+}
+
+.contact-text > a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 1051px) {
+  .map {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .section-carousel-2 {
+    padding: 3rem;
+  }
+
+  .image-bakery {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  iframe {
+    width: auto;
+  }
+}
+
+@media (max-width: 1100px){
+  .title-product{
+    padding: 0 5rem;
+  }
+
+  .list-product {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+  }
+}
+
+@media (max-width: 950px){
+  .contain-product{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-div{
+    width: 100%;
+  }
+
+  .right-div{
+    padding: 2rem;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .header-title{
+    padding: 11rem 2rem;
+  }
+
+  .header-title > h1 {
+    margin: 0;
+    font-size: 50px;
+  }
+
+  .logo > a {
+    font-size: 25px;
+  }
+
+  .header-div {
+    padding: 1rem;
+  }
+
+  .presentation-text {
+    padding: 2rem;
+  }
+
+  .presentation-text > p {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .header-div {
+    padding: 0.5rem;
+  }
+
+  .div-logo {
+    padding: 1rem;
+  }
+
+  .header-title > h1 {
+    margin: 0;
+    font-size: 40px;
+  }
+
+  .header-title > h2 {
+    font-size: 25px;
+  }
+
+  .header-btn {
+    font-size: 19px;
+    padding: 1rem;
+  }
+
+  .presentation-text > p {
+    font-size: 20px;
+  }
+
+  .section-carousel-2 {
+    padding: 1.5rem;
+  }
+
+  .section-carousel-2 > h2 {
+    font-size: 30px;
+  }
+
+  .image-bakery > img {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+
+/***************************** CATEGORY **************************/
+.category-section{
+  padding: 7rem 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 10rem;
+}
+
+.category-title > p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.category-title > a {
+  color: black;
+  text-decoration: none;
+}
+
+.category-title > a:hover {
+  color: black;
+}
+
+.category {
+  background-image: url("/photos/background-categorie.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 85%;
+  height: 78%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.category > img {
+  width: 90%;
+}
+
+@media (max-width: 1000px) {
+  .category-section{
+    padding: 6rem 1rem;
+  }
+
+  .category-title {
+    padding: 0 2rem;
+  }
+
+  .category {
+    width: 100%;
+  }
+
+  .category > img {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 500px)
+{
+  .title-product {
+    padding: 0rem 1rem;
+    width: 100%;
+  }
+
+  .title-product > p {
+    font-size: 18px;
+  }
+
+  .category-title > p {
+    font-size: 17px;
+  }
+
+  .list-product > div {
+    width: 100%;
+    margin: 0;
+    width: 100%;
+    align-items: displ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product {
+    width: 14rem;
+    height: 20rem;
+  }
+
+  .product-name-div{
+    width: 100%;
+  }
+
+  .list-product > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+   
+}
+
+/*************************** SEARCH ***************************/
+
+.form {
+  padding: 3rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.form > div ul {
+  list-style: none;
+  display: none;
+}
+
+@media (max-width: 970px){
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+/************************************* CONTACT *************************/
+.contain-contact {
+  display: flex;
+  flex-direction: column;
+  padding: 7rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-contact {
+  align-self: center;
+}
+
+@media (max-width: 500px) {
+  .contain-contact {
+    padding: 2rem;
+  }
+}
+
+/********************************** LOGIN *****************************/
+
+.contain {
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+  background: url("/photos/boulangerie2.jpg");
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contain > form {
+  font-size: 30px;
+  background: #0006;
+  padding: 2rem;
+  border-radius: 10px;
+  color: white;
+}
+
+.contain > form > input {
+  font-size: 20px;
+}
+
+/************************** FOOTER *************************/
+
+
+.logo-footer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+
+.logo-footer p {
+  font-family: 'Castoro Titling', cursive;
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s;
+}
+
+.footer{
+  background-image: url("/photos/background-footer3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hr-footer {
+  color: white;
+  width: 40%;
+  border: 1px solid white;
+  margin: 0 auto;
+}
+
+.footer-menu{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.footer-menu > span {
+  color: white;
+}
+
+.footer-menu > a {
+  text-decoration: none;
+  color: white;
+  font-size: 17px;
+}
+
+.footer-menu > a:hover {
+  color: white;
+}
+
+.footer > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.footer > div:first-child > p {
+  color: white;
+}
+
+@media (max-width: 1100px){
+  .logo-footer > p {
+    font-size: 22px;
+  }
+}
