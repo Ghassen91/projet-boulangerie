@@ -5,6 +5,7 @@
 {% block body %}
 
 <main>
+{{wo_render_breadcrumbs({separator: ' > '})}}
 
 <section class="category-section">
     {% for category in categorys %}

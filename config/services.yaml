@@ -7,7 +7,7 @@ parameters:
     products: /images/products
     categorys: /images/categorys
     image_bakery: /images/bakery
-    default_admin_email: ghassenbelhadj@gmail.com
+
     
 services:
     # default configuration for services in *this* file
@@ -23,6 +23,7 @@ services:
             - '../src/DependencyInjection/'
             # - '../src/Entity/'
             - '../src/Kernel.php'
+        debug: false
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

@@ -5,5 +5,5 @@ framework:
         # dsn: 'smtp://localhost:0.0.0.0:1025'
         # envelope:
         #     recipients: ['ghassenbelhadj@gmail.com']
-        headers:
-            To: "e7san@hotmail.fr"
+        # headers:
+        #     To: "ghassenbelhadj@gmail.com"

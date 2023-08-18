@@ -9,13 +9,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+use WhiteOctober\BreadcrumbsBundle\Model\Breadcrumbs;
 
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact_contact')]
-    public function contact(Request $request, MailerService $mailer, ContactRepository $repository): Response
+    public function contact(
+    Request $request, 
+    MailerService $mailer, 
+    ContactRepository $repository, 
+    Breadcrumbs $breadcrumbs, 
+    ): Response
     {
+        $breadcrumbs->addItem("Contact");
+
+        $breadcrumbs->prependRouteItem("Accueil", "app_home_home");
 
         //je crée le formulaire
         $form = $this->createForm(ContactType::class);
@@ -28,12 +36,15 @@ class ContactController extends AbstractController
             //Je récupère les données saisies
             $contact = $form->getData();
 
+            $to = "contact@boulangerie-de-la-gare.fr";
+            
             $from = $contact->getEmail();
+            $replyTo = $contact->getEmail();
             $subject = 'Nouveau message de '.' '.$contact->getName(). ' '.$contact->getFirstname();
             $content = $contact->getMessage();
             // J'utilise le mailerService pour envoyer ce formulaire
             // à l'adresse mail de l'administrateur
-            $mailer->sendEmail($subject, $content, $from);
+            $mailer->sendEmail($replyTo, $to, $subject, $content, $from);
 
             // Si le formulaire est bien envoyer et le mail est correctement envoyé
             // j'affiche un meesage de succès à l'utilisateur

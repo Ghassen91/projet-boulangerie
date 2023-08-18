@@ -4,10 +4,13 @@
 
 {% block body %}
 <main>
+{{wo_render_breadcrumbs({separator: ' > ', listId: 'breadcrumbs'})}}
     <div class="contain-product">
         <div class="left-div">
             {% if product.images|length > 0 %}            
-                <img src="{{ vich_uploader_asset(product.images.first) }}" alt="{{product.name}}">
+                <img class="image-product-left-div" src="{{ vich_uploader_asset(product.images.first) }}" alt="{{product.name}}">
+            {% else %}
+                <img class="default-image-left-div" src="/photos/image-par-défaut2.jpg" alt="photo-alternative">
             {% endif %} 
         </div>
 

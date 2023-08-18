@@ -3,13 +3,21 @@
 {% block title %}Nos produits{% endblock %}
 
 {% block body %}
+{{wo_render_breadcrumbs({separator: ' > '})}}
 <div class="container-fluid">
+    {# <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">{{  }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ category.name }}</li>
+        </ol>
+    </nav> #}
+
     <div class="title-product">
         <h1 class="h1"> {{category.name}} </h1>
         <p> {{category.description}} </p>
     </div>
+
     <div class="list-product">
-        
         {% if products == false %}
             <h2>Aucun produits disponible</h2>
         {% else %}
@@ -20,19 +28,20 @@
                 <div class="product">
                     
                     {% if product.images|length > 0 %}            
-                        <img class="product-image" src="{{ vich_uploader_asset(product.images.first) }}" alt="{{product.name}}">
+                        <a href="{{path('app_product_show', {id: product.id})}}"><img  class="product-image" src="{{ vich_uploader_asset(product.images.first) }}" alt="{{product.name}}"></a>
                     {% else %}
-                        <img class="default-image" src="/photos/image-par-défaut2.jpg" alt="photo-alternative">
+                        <a href="{{path('app_product_show', {id: product.id})}}"><img class="default-image" src="/photos/image-par-défaut2.jpg" alt="photo-alternative"></a>
                     {% endif %}          
                     
                 </div>
             {# {% endif %} #}
                 <div class="product-name-div">
                     <div>
-                        <a href="{{path('app_product_show', {id: product.id})}}"><h2 class="name-product">{{product.name}}</h2></a>
+                        <h2 class="name-product">{{product.name}}</h2>
                         <p class="price">{{product.price|number_format(2)}} €</p>
                     </div>
-                    <p> {{product.description}} </p>
+                    {# <p> {{product.description}} </p> #}
+                    <details> {{product.description}} </details>
                </div> 
             </div>
             {% endfor %}

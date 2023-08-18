@@ -18,31 +18,34 @@
         {{form_end(form)}}
         
         <div class="list-product">
-            {% if products == false %}
-                <h2>Aucun produit disponible</h2>
-            {% else %}
-            
-                {% for product in products %}
-                <div>
-                    {% if product.images|length > 0 %}  
-                    <div class="product">
-                        {% if product.images|length > 0 %}                                       
-                            <img class="product-image" src="{{ vich_uploader_asset(product.images.first) }}" alt="{{product.name}}" width="">
-                        {% endif %}          
-                        
-                    </div>
-                    {% endif %}
-
-                    <div class="product-name-div">
-                        <div>
-                            <a href="{{path('app_product_show', {id: product.id})}}"><h2 class="name-product">{{product.name}}</h2></a>
-                            <p class="price">{{product.price|number_format(2)}} €</p> 
-                        </div>
-                        <p> {{product.description}} </p>
-                    </div> 
+        {% if products == false %}
+            <h2>Aucun produits disponible</h2>
+        {% else %}
+        
+        {% for product in products %}
+            <div>
+            {# {% if product.images|length > 0 %}   #}
+                <div class="product">
+                    
+                    {% if product.images|length > 0 %}            
+                        <a href="{{path('app_product_show', {id: product.id})}}"><img  class="product-image" src="{{ vich_uploader_asset(product.images.first) }}" alt="{{product.name}}"></a>
+                    {% else %}
+                        <a href="{{path('app_product_show', {id: product.id})}}"><img class="default-image" src="/photos/image-par-défaut2.jpg" alt="photo-alternative"></a>
+                    {% endif %}          
+                    
                 </div>
-                {% endfor %}
-            
+            {# {% endif %} #}
+                <div class="product-name-div">
+                    <div>
+                        <h2 class="name-product">{{product.name}}</h2>
+                        <p class="price">{{product.price|number_format(2)}} €</p>
+                    </div>
+                    {# <p> {{product.description}} </p> #}
+                    <details> {{product.description}} </details>
+                </div> 
+            </div>
+            {% endfor %}
+        
             {% endif %}
         </div>
     </div>
